@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>trileafu homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: hsl(0, 0%, 15%);
+      }
+      ::-webkit-scrollbar { 
+        display: none;
+      }
+      .scrolllock {
+        scroll-snap-align: start;
+      }
+
+      @media all and (min-width: 768px) {
+        body {
+          display: flex;
+          justify-content: center;
+          margin: 0;
+          height: 100vh;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        section, header {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+        main {
+          height: 100vh;
+        }
+        #backdrop {
+          display: none;
+        }
+      }
+
+      @media all and (max-width: 767.5px) {
+        #logo {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+        #backdrop {
+          height: 100vh;
+        }
+        section {
+          position: absolute;
+          height: 100vh;
+          z-index: 2;
+          overflow: scroll;
+          scroll-behavior: smooth;
+          scroll-snap-type: y mandatory;
+        }
+        main {
+          height: calc(100% - 100px);
+        }
+        main::before {
+          content: "—";
+          font-weight: 900;
+          color: hsl(0, 0%, 15%);
+          border-radius: 16px 16px 0 0;
+          height: 16px;
+          position: absolute;
+          z-index: -1;
+          bottom: -1px;
+          padding-bottom: 8px;
+          text-align: center;
+          width: 100%;
+          background-color: hsl(0, 0%, 90%);
+        }
+        main > h1 {
+          display: none;
+        }
+        #backdrop >  h1 {
+          position: absolute;
+          bottom: 0;
+          text-align: center;
+          width: 100%;
+          margin-bottom: 34px;
+          animation: name 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+          animation-delay: calc(var(--scroll) / 100 * -.9s);
+          animation-play-state: paused;
+          animation-fill-mode: forwards;
+        }
+      }
+
+      #logo {
+        width: 50%;
+        z-index: 1;
+        animation: logo 1s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+        animation-delay: calc(var(--scroll) / 100 * -1s);
+        animation-play-state: paused;
+        animation-fill-mode: forwards;
+      }
+      @keyframes logo {
+        to {
+          filter: blur(8px);
+          width: 40%;
+          opacity: 0.5;
+        }
+      }
+      header {
+        background-color: hsl(0, 0%, 15%);
+      }
+
+      main {
+        background-color: hsl(0, 0%, 90%);
+        display: flex;
+        z-index: 2;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'M PLUS 1', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      #content {
+        height: 100%;
+        width: 100%;
+        margin-bottom: 8px;
+        overflow: scroll;
+      }
+      h1 {
+        font-family: Merriweather, Georgia, 'Times New Roman', Times, serif;
+        font-weight: 900;
+        font-size: 40px;
+        color: hsl(91, 79%, 41%);
+        text-shadow: 0 0 3px hsl(91, 79%, 41%);
+      }
+      @keyframes name {
+        from {
+          filter: blur(8px);
+          scale: 40%;
+          opacity: 0;
+        }
+      }
+
+      article {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 0 20px;
+      }
+      article:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      article > h2 {
+        margin: 5px 10px 10px 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+      h2 > a {
+        color: hsl(212, 100%, 50%);
+        text-decoration: none;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      .link {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        padding: 10px 10px;
+      }
+      .link:hover {
+        background-color: hsl(0, 0%, 95%);
+      }
+      .link > svg {
+        width: 23.33px;
+        color: hsl(0, 0%, 80%);
+      }
+      .link > span {
+        flex-grow: 1;
+        padding: 0 5px;
+      }
+      .link:not(:last-child) {
+        padding-bottom: 10px;
+        border-bottom: 1px solid hsl(270, 4%, 90%);
+      }
+      
+      #projects {
+        display: flex;
+        padding: 0 10px;
+        column-gap: 5px;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        overflow: hidden;
+        transition: height .33s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .project {
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .project > img {
+        border-radius: 8px;
+        width: 100%;
+      }
+      .project > span {
+        margin-bottom: 5px;
+        font-weight: 900;
+      }
+
+      #leftA {
+        animation-name: left-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .75s;
+      }
+      #leftB {
+        animation-name: left-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .82s;
+      }
+      #leftC {
+        animation-name: left-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .88s;
+      }
+
+      #rightA {
+        animation-name: right-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .75s;
+      }
+      #rightB {
+        animation-name: right-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .82s;
+      }
+      #rightC {
+        animation-name: right-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .88s;
+      }
+
+      #lineA {
+        animation-name: line-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        stroke-dasharray: 989;
+        stroke-dashoffset: 988;
+      }
+      #lineB {
+        animation-name: line-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        stroke-dasharray: 989;
+        stroke-dashoffset: 988;
+        animation-delay: .14s;
+      }
+      #lineC {
+        animation-name: line-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        stroke-dasharray: 989;
+        stroke-dashoffset: 988;
+        animation-delay: .26s;
+      }
+
+      #line2A {
+        animation-name: line-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .75s;
+        stroke-dasharray: 989;
+        stroke-dashoffset: 988;
+      }
+      #line2B {
+        animation-name: line-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .82s;
+        stroke-dasharray: 989;
+        stroke-dashoffset: 988;
+      }
+      #line2C {
+        animation-name: line-anim;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.00, 1.00, 0.00, 1.00);
+        animation-fill-mode: forwards;
+        animation-delay: .88s;
+        stroke-dasharray: 989;
+        stroke-dashoffset: 988;
+      }
+
+      @keyframes left-anim {
+        0% {
+          d: path('M 116.0 283.0L 116.0 283.0C 116.0 283.0, 56.11548 245.77788, 57.849426 249.61752C 59.583374 253.45717, -124.10207 36.60482, -122.25206 33.06417C -120.40205 29.523521, -156.71558 -124.6393, -160.54703 -122.71219C -164.37848 -120.78508, -151.56473 -320.13626, -149.78226 -317.7609C -147.99979 -315.38553, -121.5 -417.0, -121.5 -417.0C -121.5 -417.0, -113.80739 -419.7676, -118.63165 -420.55743C -199.98541 -197.73804, -138.5 -63.0, -138.5 -63.0C -138.5 -63.0, -106.9375 64.5, -49.0 139.5C 8.9375 214.5, 116.0 283.0, 116.0 283.0Z');
+        }
+        100% {
+          d: path('M 116.0 283.0L 116.0 283.0C 116.0 283.0, 100.68088 299.3842, 41.805878 308.5717C -17.069122 317.7592, -63.726562 307.5625, -120.53906 275.5C -177.35156 243.4375, -241.92542 120.110634, -261.8004 13.298134C -281.6754 -93.514366, -246.0 -223.875, -205.0 -303.5C -164.0 -383.125, -121.5 -417.0, -121.5 -417.0C -121.5 -417.0, -113.80739 -419.7676, -118.63165 -420.55743C -199.98541 -197.73804, -138.5 -63.0, -138.5 -63.0C -138.5 -63.0, -106.9375 64.5, -49.0 139.5C 8.9375 214.5, 116.0 283.0, 116.0 283.0Z');
+        }
+      }
+      @keyframes right-anim {
+        0% {
+          d: path('M -121.5 -417.0C -119.47595 -417.1971, -150.2936 -327.48868, -148.39145 -330.71735C -146.4893 -333.946, -152.25339 -120.54915, -149.6529 -117.08511C -144.56738 -110.31085, -50.675194 149.51384, -48.675186 146.63046C -46.67518 143.74709, 112.89867 284.6061, 113.09095 283.1903C 115.57169 284.063, 1.239708 204.7193, -47.760292 145.7193C -96.76029 86.7193, -148.88281 -75.673065, -148.88281 -75.673065C -148.88281 -75.673065, -188.47229 -226.68753, -121.5 -417.0Z')
+        }
+        100% {
+          d: path('M -121.5 -417.0C -119.47595 -417.1971, -134.25 -398.75, -127.0 -332.5C -119.75 -266.25, -74.104485 -214.46938, -41.0 -170.0C 16.600338 -92.625244, 168.5 90.6875, 170.5 139.5C 172.5 188.3125, 112.89867 284.6061, 113.09095 283.1903C 115.57169 284.063, 1.239708 204.7193, -47.760292 145.7193C -96.76029 86.7193, -148.88281 -75.673065, -148.88281 -75.673065C -148.88281 -75.673065, -188.47229 -226.68753, -121.5 -417.0Z')
+        }
+      }
+      @keyframes line-anim {
+        0% {
+          stroke-dashoffset: 988;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <svg id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-540 -540 1080 1080">
+        <path fill="#89D043" id="leftA" transform="translate(-168)" />
+        <path fill="#9BEB4B" id="rightA" transform="translate(-168)" />
+        <path fill="none" stroke="#7CB939" stroke-linecap="round" stroke-width="9" d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489" id="lineA" transform="translate(-168)" />
+        <path fill="none" stroke="#8ED442" stroke-linecap="round" stroke-width="9" d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489" id="line2A" transform="translate(-168)" />
+        <path fill="262626" transform="translate(-10)" id="leftB" />
+        <path fill="#89D043" id="leftB" />
+        <path fill="#9BEB4B" id="rightB" />
+        <path fill="none" stroke="#7CB939" stroke-linecap="round" stroke-width="9" d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489" id="lineB" />
+        <path fill="none" stroke="#8ED442" stroke-linecap="round" stroke-width="9" d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489" id="line2B" />
+        <path fill="262626" id="leftC" transform="translate(158)" />
+        <path fill="#89D043" id="leftC" transform="translate(168)" />
+        <path fill="#9BEB4B" id="rightC" transform="translate(168)" />
+        <path fill="none" stroke="#7CB939" stroke-linecap="round" stroke-width="9" d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489" id="lineC" transform="translate(168)" />
+        <path fill="none" stroke="#8ED442" stroke-linecap="round" stroke-width="9" d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489" id="line2C" transform="translate(168)" />
+        </svg>
+    </header>
+    <section id="scrollspace">
+      <div id="backdrop">
+        <h1>trileafu</h1>
+      </div>
+      <main id="main">
+        <h1>trileafu</h1>
+        <div id="content">
+          <article>
+            <a class="link" href="https://github.com/trileafu" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#333333" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+              <span>Github</span>
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg> 
+            </a>
+            <a class="link" href="https://instagram.com/trileafu" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#c13584" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+              </svg>
+              <span>Instagram</span>
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg> 
+            </a>
+            <a class="link" href="https://twitter.com/trileafu" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#1da1f2" viewBox="0 0 16 16">
+                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+              </svg>
+              <span>Twitter</span>
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+            <a class="link" href="https://youtube.com/@trileafu" target="_blank">
+              <svg fill="#f70000" viewBox="0 0 16 13">
+                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+              </svg>
+              <span>Youtube</span>
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </article>
+          <article>
+            <h2>
+              <span>Projects</span>
+              <a onclick="shrinkExpand()" id="shrinkexpand">See all</a>
+            </h2>
+            <div id="projects" style="height: 188px;">
+              <a class="project">
+                <img src="https://images.placeholders.dev/?width=160&height=160" />
+                <span>Yunite</span>
+              </a>
+              <a class="project">
+                <img src="https://images.placeholders.dev/?width=160&height=160" />
+                <span>Yunite</span>
+              </a>
+              <a class="project">
+                <img src="https://images.placeholders.dev/?width=160&height=160" />
+                <span>Yunite</span>
+              </a>
+              <a class="project">
+                <img src="https://images.placeholders.dev/?width=160&height=160" />
+                <span>Yunite</span>
+              </a>
+              <a class="project">
+                <img src="https://images.placeholders.dev/?width=160&height=160" />
+                <span>Yunite</span>
+              </a>
+              <a class="project">
+                <img src="https://images.placeholders.dev/?width=160&height=160" />
+                <span>Yunite</span>
+              </a>
+            </div>
+          </article>
+          <article style="height: 500px;">
+            <h2>
+              <span>Send a Mail</span>
+            </h2>
+          </article>
+        </div>
+      </main>
+    </section>
+    <script>
+      setTimeout(scroll, 1000);
+      let lockinterval;
+      function scroll() {
+        document.getElementById('scrollspace').scroll(0, document.getElementById('scrollspace').offsetHeight - 100);
+        lockinterval = setInterval(scrolllock, 160)
+      }
+      function scrolllock() {
+        if(Math.floor(document.getElementById('scrollspace').scrollTop / (document.getElementById('scrollspace').offsetHeight - 100) * 100) == 100) {
+          clearInterval(lockinterval);
+          document.getElementById('main').classList.add('scrolllock');
+        }
+      }
+      function shrinkExpand() {
+        if(document.getElementById('projects').style.height == '188px') {
+          document.getElementById('projects').style.height = `${document.getElementById('projects').scrollHeight}px`;
+          document.getElementById('shrinkexpand').innerHTML = 'See less';
+        }
+        else {
+          document.getElementById('projects').style.height = '188px';
+          document.getElementById('shrinkexpand').innerHTML = 'See all';
+        }
+      }
+      document.getElementById('scrollspace').addEventListener('scroll', () => {
+        document.body.style.setProperty('--scroll', Math.floor(document.getElementById('scrollspace').scrollTop / (document.getElementById('scrollspace').offsetHeight - 100) * 100));
+      }, false);
+    </script>
+  </body>
+</html>
