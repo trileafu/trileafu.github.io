@@ -1,0 +1,196 @@
+<style>
+	#leftA {
+		animation-name: left-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.75s;
+	}
+	#leftB {
+		animation-name: left-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.82s;
+	}
+	#leftC {
+		animation-name: left-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.88s;
+	}
+
+	#rightA {
+		animation-name: right-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.75s;
+	}
+	#rightB {
+		animation-name: right-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.82s;
+	}
+	#rightC {
+		animation-name: right-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.88s;
+	}
+
+	#lineA {
+		animation-name: line-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		stroke-dasharray: 989;
+		stroke-dashoffset: 988;
+	}
+	#lineB {
+		animation-name: line-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		stroke-dasharray: 989;
+		stroke-dashoffset: 988;
+		animation-delay: 0.14s;
+	}
+	#lineC {
+		animation-name: line-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		stroke-dasharray: 989;
+		stroke-dashoffset: 988;
+		animation-delay: 0.26s;
+	}
+
+	#line2A {
+		animation-name: line-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.75s;
+		stroke-dasharray: 989;
+		stroke-dashoffset: 988;
+	}
+	#line2B {
+		animation-name: line-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.82s;
+		stroke-dasharray: 989;
+		stroke-dashoffset: 988;
+	}
+	#line2C {
+		animation-name: line-anim;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(0, 1, 0, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0.88s;
+		stroke-dasharray: 989;
+		stroke-dashoffset: 988;
+	}
+
+	@keyframes left-anim {
+		0% {
+			d: path(
+				"M 116.0 283.0L 116.0 283.0C 116.0 283.0, 56.11548 245.77788, 57.849426 249.61752C 59.583374 253.45717, -124.10207 36.60482, -122.25206 33.06417C -120.40205 29.523521, -156.71558 -124.6393, -160.54703 -122.71219C -164.37848 -120.78508, -151.56473 -320.13626, -149.78226 -317.7609C -147.99979 -315.38553, -121.5 -417.0, -121.5 -417.0C -121.5 -417.0, -113.80739 -419.7676, -118.63165 -420.55743C -199.98541 -197.73804, -138.5 -63.0, -138.5 -63.0C -138.5 -63.0, -106.9375 64.5, -49.0 139.5C 8.9375 214.5, 116.0 283.0, 116.0 283.0Z"
+			);
+		}
+		100% {
+			d: path(
+				"M 116.0 283.0L 116.0 283.0C 116.0 283.0, 100.68088 299.3842, 41.805878 308.5717C -17.069122 317.7592, -63.726562 307.5625, -120.53906 275.5C -177.35156 243.4375, -241.92542 120.110634, -261.8004 13.298134C -281.6754 -93.514366, -246.0 -223.875, -205.0 -303.5C -164.0 -383.125, -121.5 -417.0, -121.5 -417.0C -121.5 -417.0, -113.80739 -419.7676, -118.63165 -420.55743C -199.98541 -197.73804, -138.5 -63.0, -138.5 -63.0C -138.5 -63.0, -106.9375 64.5, -49.0 139.5C 8.9375 214.5, 116.0 283.0, 116.0 283.0Z"
+			);
+		}
+	}
+	@keyframes right-anim {
+		0% {
+			d: path(
+				"M -121.5 -417.0C -119.47595 -417.1971, -150.2936 -327.48868, -148.39145 -330.71735C -146.4893 -333.946, -152.25339 -120.54915, -149.6529 -117.08511C -144.56738 -110.31085, -50.675194 149.51384, -48.675186 146.63046C -46.67518 143.74709, 112.89867 284.6061, 113.09095 283.1903C 115.57169 284.063, 1.239708 204.7193, -47.760292 145.7193C -96.76029 86.7193, -148.88281 -75.673065, -148.88281 -75.673065C -148.88281 -75.673065, -188.47229 -226.68753, -121.5 -417.0Z"
+			);
+		}
+		100% {
+			d: path(
+				"M -121.5 -417.0C -119.47595 -417.1971, -134.25 -398.75, -127.0 -332.5C -119.75 -266.25, -74.104485 -214.46938, -41.0 -170.0C 16.600338 -92.625244, 168.5 90.6875, 170.5 139.5C 172.5 188.3125, 112.89867 284.6061, 113.09095 283.1903C 115.57169 284.063, 1.239708 204.7193, -47.760292 145.7193C -96.76029 86.7193, -148.88281 -75.673065, -148.88281 -75.673065C -148.88281 -75.673065, -188.47229 -226.68753, -121.5 -417.0Z"
+			);
+		}
+	}
+	@keyframes line-anim {
+		0% {
+			stroke-dashoffset: 988;
+		}
+		100% {
+			stroke-dashoffset: 0;
+		}
+	}
+</style>
+
+<svg
+	id="logo"
+	class="aspect-square h-full p-8 sm:p-16 w-[40vw] sm:w-[20vw] bg-trileafu-background"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	viewBox="-540 -540 1080 1080"
+>
+	<path fill="#89D043" id="leftA" transform="translate(-168)"></path>
+	<path fill="#9BEB4B" id="rightA" transform="translate(-168)"></path>
+	<path
+		fill="none"
+		stroke="#7CB939"
+		stroke-linecap="round"
+		stroke-width="9"
+		d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489"
+		id="lineA"
+		transform="translate(-168)"></path>
+	<path
+		fill="none"
+		stroke="#8ED442"
+		stroke-linecap="round"
+		stroke-width="9"
+		d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489"
+		id="line2A"
+		transform="translate(-168)"></path>
+	<path fill="#262626" transform="translate(-10)" id="leftB"></path>
+	<path fill="#89D043" id="leftB"></path>
+	<path fill="#9BEB4B" id="rightB"></path>
+	<path
+		fill="none"
+		stroke="#7CB939"
+		stroke-linecap="round"
+		stroke-width="9"
+		d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489"
+		id="lineB"></path>
+	<path
+		fill="none"
+		stroke="#8ED442"
+		stroke-linecap="round"
+		stroke-width="9"
+		d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489"
+		id="line2B"></path>
+	<path fill="#262626" id="leftC" transform="translate(158)"></path>
+	<path fill="#89D043" id="leftC" transform="translate(168)"></path>
+	<path fill="#9BEB4B" id="rightC" transform="translate(168)"></path>
+	<path
+		fill="none"
+		stroke="#7CB939"
+		stroke-linecap="round"
+		stroke-width="9"
+		d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489"
+		id="lineC"
+		transform="translate(168)"></path>
+	<path
+		fill="none"
+		stroke="#8ED442"
+		stroke-linecap="round"
+		stroke-width="9"
+		d="M 251.19337 399.64185C 205.75943 274.2348, 118.84904 339.26352, -47.760292 145.7193C -96.76029 86.7193, -144.13286 -75.673065, -144.13286 -75.673065C -144.13286 -75.673065, -188.63058 -180.06717, -121.29433 -416.78436C -121.33152 -414.1756, 296.62732 525.0489"
+		id="line2C"
+		transform="translate(168)"></path>
+</svg>
