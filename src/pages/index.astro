@@ -1,41 +1,43 @@
 ---
 import Logo from "@/components/Logo.astro";
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import Aside from "@/assets/aside.svg";
 ---
 
 <Layout>
-	<div class="min-h-screen flex items-center justify-center bg-black">
+	<div
+		class="max-sm:min-h-[40svh] min-h-[100svh] flex items-center justify-center bg-black"
+	>
 		<style>
-			@media (width < 40rem) {
-				#logoFigure {
-					animation-name: logoFigureVerticalAnim;
-					animation-duration: 1s;
-					animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-					animation-fill-mode: both;
-					animation-delay: 0.9s;
-				}
-				#logoAside {
-					animation-name: logoAsideVerticalAnim;
-					animation-duration: 1s;
-					animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-					animation-fill-mode: both;
-					animation-delay: 0.9s;
-				}
+			#logoFigure {
+				animation-name: logoFigureHorizontalAnim;
+				animation-duration: 1s;
+				animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+				animation-fill-mode: both;
+				animation-delay: 0.9s;
 			}
-			@media (width >= 40rem) {
-				#logoFigure {
-					animation-name: logoFigureHorizontalAnim;
-					animation-duration: 1s;
-					animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-					animation-fill-mode: both;
-					animation-delay: 0.9s;
+			#logoAside {
+				animation-name: logoAsideHorizontalAnim;
+				animation-duration: 1s;
+				animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+				animation-fill-mode: both;
+				animation-delay: 0.9s;
+			}
+
+			#logoMain {
+				animation-name: logoMainAnim;
+				animation-duration: 0.5s;
+				animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+				animation-fill-mode: both;
+				animation-delay: 0.9s;
+			}
+
+			@keyframes logoMainAnim {
+				0% {
+					background-color: var(--color-trileafu-background);
 				}
-				#logoAside {
-					animation-name: logoAsideHorizontalAnim;
-					animation-duration: 1s;
-					animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-					animation-fill-mode: both;
-					animation-delay: 0.9s;
+				100% {
+					background-color: white;
 				}
 			}
 
@@ -79,21 +81,17 @@ import Layout from "../layouts/Layout.astro";
 			}
 		</style>
 		<main
-			class="relative flex items-end justify-end overflow-hidden sm:flex-row gap-4 bg-white aspect-[2.125/3.375] sm:aspect-[3.375/2.125] w-[80vw]"
+			id="logoMain"
+			class="relative flex items-end justify-end overflow-hidden sm:flex-row gap-4 bg-white aspect-[3.375/2.125] w-[80vw]"
 		>
 			<figure
 				id="logoFigure"
-				class="absolute z-20 top-0 left-0 max-sm:w-full sm:h-full aspect-[2/1] bg-trileafu-background flex items-center justify-center"
+				class="absolute z-20 top-0 left-0 h-full bg-trileafu-background flex items-center justify-center"
 			>
 				<Logo />
 			</figure>
-			<aside
-				id="logoAside"
-				class="flex flex-col gap-4 items-center justify-center w-full sm:w-[60vw] h-full max-sm:h-[40vh]"
-			>
-				<h1 class="text-4xl sm:text-7xl font-bold text-trileafu">
-					<span class="font-serif text-trileafu-alt">trileafu.</span>T.B.D
-				</h1>
+			<aside id="logoAside" class="w-[60vw] h-full">
+				<Aside class="w-full h-full" />
 			</aside>
 		</main>
 	</div>

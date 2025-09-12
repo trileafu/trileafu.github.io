@@ -50,6 +50,7 @@
 	--color-trileafu: #9beb4b;
 	--color-trileafu-muted: #89d043;
 	--color-trileafu-alt: #66bb16;
+	--color-trileafu-darker: #477d14;
 	--color-trileafu-background: #262626;
 }
 
@@ -127,6 +128,6 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-black text-foreground;
 	}
 }

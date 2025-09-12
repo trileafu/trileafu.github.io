@@ -3,12 +3,14 @@ import "../styles/global.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "@fontsource-variable/merriweather";
 import "@fontsource-variable/google-sans-code";
+import { localizedHTML as favicons } from "astro-favicons/middleware";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<Fragment set:html={favicons(Astro.currentLocale)} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
