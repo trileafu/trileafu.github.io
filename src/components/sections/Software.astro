@@ -1,0 +1,47 @@
+---
+import ngipenImg from "@/assets/projects/nGipEn.png";
+import { Image } from "astro:assets";
+---
+
+<div class="container" id="software">
+	<div
+		class="sticky top-0 pt-15 pb-4 pr-4 rounded-br-2xl h-fit bg-white z-10 left-0 w-fit"
+	>
+		<h2
+			class="bg-amber-100 text-xl outline-1 outline-amber-900 py-2 px-4 w-fit rounded-xs rounded-br-2xl"
+		>
+			Software
+		</h2>
+	</div>
+	<div>
+		<div class="text-center w-full">
+			<a
+				href="https://github.com/trileafu"
+				class="w-full pb-4 flex justify-center"
+			>
+				<img
+					src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=trileafu&theme=default"
+					alt="Github Profile details badge"
+				/>
+			</a>
+			I develop <b>full-stack applications</b>, sometimes in <b
+				>web and embedded IoT</b
+			>.
+			<div class="flex gap-4 p-4 overflow-x-auto">
+				<a
+					href="https://ngipen.page"
+					class="hover:scale-95 transition-transform flex-shrink-0"
+					rel="noreferrer"
+					target="_blank"
+				>
+					<Image
+						src={ngipenImg}
+						alt="nGipEn"
+						class="h-40 w-auto mb-2 rounded-lg transition-shadow shadow-md hover:shadow-xl object-cover"
+					/>
+					<span class="font-bold">nGipEn</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
