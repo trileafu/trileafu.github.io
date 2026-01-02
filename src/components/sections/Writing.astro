@@ -1,37 +1,33 @@
 ---
 const posts = [
-	{
-		title: "Building Delightful UIs with Astro",
-		summary:
-			"How I pair content-driven pages with light client islands to keep things fast and maintainable.",
-		tags: ["astro", "frontend", "performance"],
-		date: "2025-12-02",
-		link: "#",
-	},
-	{
-		title: "Design Systems for Solo Makers",
-		summary:
-			"Practical constraints, token-driven theming, and component guardrails that scale without a team.",
-		tags: ["design-system", "ui", "workflow"],
-		date: "2025-10-15",
-		link: "#",
-	},
-	{
-		title: "Shipping Embedded + Cloud",
-		summary:
-			"Notes from bridging firmware, edge telemetry, and dashboards while keeping feedback loops tight.",
-		tags: ["embedded", "cloud", "ops"],
-		date: "2025-08-30",
-		link: "#",
-	},
-	{
-		title: "Frictionless Dev Environments",
-		summary:
-			"Dotfiles, reproducible stacks, and guardrails that keep contributors productive on day one.",
-		tags: ["tooling", "dx", "automation"],
-		date: "2025-07-12",
-		link: "#",
-	},
+    {
+        title: "Composing Live Sets with Minimal Gear",
+        summary: "Workflow notes for building evolving textures using a sampler, delay, and a single synth.",
+        category: "music",
+        date: "2025-12-02",
+        slug: "composing-live-sets-minimal-gear",
+    },
+    {
+        title: "Lightweight Photo Delivery Pipeline",
+        summary: "From RAW to web-ready: presets, exports, and automations that keep albums consistent.",
+        category: "photo",
+        date: "2025-10-15",
+        slug: "lightweight-photo-delivery-pipeline",
+    },
+    {
+        title: "State Machines in UI Without the Bloat",
+        summary: "How to model complex flows with small, testable machines instead of sprawling conditionals.",
+        category: "software",
+        date: "2025-08-30",
+        slug: "state-machines-ui-without-bloat",
+    },
+    {
+        title: "One-Command Dev Environments",
+        summary: "Shell scripts, dotfiles, and containers that make onboarding new machines trivial.",
+        category: "misc",
+        date: "2025-07-12",
+        slug: "one-command-dev-environments",
+    },
 ];
 ---
 
@@ -56,11 +52,9 @@ const posts = [
 					<div class="flex items-center justify-between text-sm text-gray-600">
 						<span class="font-semibold text-gray-800">{post.date}</span>
 						<div class="flex flex-wrap gap-2">
-							{post.tags.map((tag) => (
-								<span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
-									{tag}
-								</span>
-							))}
+                            <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
+                                {post.category}
+                            </span>
 						</div>
 					</div>
 					<div class="space-y-2">
@@ -68,7 +62,7 @@ const posts = [
 						<p class="text-gray-700">{post.summary}</p>
 					</div>
 					<a
-						href={post.link}
+						href={post.slug}
 						target="_blank"
 						rel="noreferrer"
 						class="inline-flex items-center gap-2 text-blue-700 font-semibold hover:text-blue-900"
