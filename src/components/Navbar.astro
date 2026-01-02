@@ -15,9 +15,29 @@ import Favicon from "@/assets/brands/favicon.png";
 			<Image src={Favicon} alt="trileafu logo" class="h-8 w-8" />
 			<span class="text-xl font-serif font-bold">trileafu</span>
 		</div>
-		<div class="flex items-center gap-4 text-sm">
-			<a href="#contents" class="hover:underline">Contents</a>
-			<button class="rounded-md bg-black px-3 py-1 text-white">Action</button>
+		<div class="flex items-center gap-4 text-sm" id="nav-links">
+			<button data-target="readme" class="hover:underline hidden md:inline">readme</button>
+			<button data-target="photo" class="hover:underline hidden md:inline">photo</button>
+			<button data-target="music" class="hover:underline hidden md:inline">music</button>
+			<button data-target="software" class="hover:underline hidden md:inline">software</button>
+			<button data-target="writing" class="hover:underline hidden md:inline">writing</button>
+			<button data-target="contact" class="rounded-md bg-black px-3 py-1 text-white">contact</button>
 		</div>
 	</nav>
+	
+	<script is:inline>
+		const nav = document.getElementById("nav-links");
+		const header = document.getElementById("header");
+		const offset = () => (header ? header.offsetHeight + 8 : 0);
+	
+		nav?.addEventListener("click", (event) => {
+			const target = event.target;
+			if (!(target instanceof HTMLElement)) return;
+			const sectionId = target.dataset.target;
+			if (!sectionId) return;
+			event.preventDefault();
+			const section = document.getElementById(sectionId);
+			section.scrollIntoView({ behavior: "smooth" });
+		});
+	</script>
 </header>
