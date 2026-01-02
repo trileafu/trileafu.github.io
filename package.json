@@ -15,6 +15,7 @@
     "@fontsource-variable/bricolage-grotesque": "^5.2.8",
     "@fontsource-variable/google-sans-code": "^5.2.1",
     "@fontsource-variable/merriweather": "^5.2.5",
+    "@icons-pack/react-simple-icons": "^13.8.0",
     "@jop-software/astro-cookieconsent": "^3.0.1",
     "@tailwindcss/vite": "^4.1.13",
     "@types/react": "^19.1.12",
