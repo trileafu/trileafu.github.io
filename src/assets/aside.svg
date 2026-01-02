@@ -75,7 +75,7 @@
        x="3.9934924"
        y="21.310434">call me qeis</tspan></text><text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:18.3444px;line-height:0.8;font-family:'var(--font-sans)';-inkscape-font-specification:'Bricolage Grotesque Ultra-Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;white-space:pre;inline-size:199.461;display:inline;fill:url(#linearGradient2);stroke-width:1.05833"
+     style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:18.3444px;line-height:0.8;font-family:var(--font-sans);-inkscape-font-specification:'Bricolage Grotesque Ultra-Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;white-space:pre;inline-size:199.461;display:inline;fill:url(#linearGradient2);stroke-width:1.05833"
      x="-57.185661"
      y="34.412258"
      id="text106"
@@ -83,7 +83,7 @@
        x="-57.185661"
        y="34.412258"
        id="tspan8"><tspan
-         style="font-weight:200;-inkscape-font-specification:'Bricolage Grotesque Ultra-Light'"
+           style="font-weight:300;-inkscape-font-specification:'Bricolage Grotesque Light'"
          id="tspan2">computer creative</tspan></tspan></text><rect
      style="font-variation-settings:'wght' 442;fill:#000000;stroke-width:13.0368;paint-order:stroke markers fill"
      id="rect1"

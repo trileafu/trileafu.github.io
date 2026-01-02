@@ -16,28 +16,30 @@ import Favicon from "@/assets/brands/favicon.png";
 			<span class="text-xl font-serif font-bold">trileafu</span>
 		</div>
 		<div class="flex items-center gap-4 text-sm" id="nav-links">
-			<button data-target="readme" class="hover:underline hidden md:inline">readme</button>
-			<button data-target="photo" class="hover:underline hidden md:inline">photo</button>
-			<button data-target="music" class="hover:underline hidden md:inline">music</button>
-			<button data-target="software" class="hover:underline hidden md:inline">software</button>
-			<button data-target="writing" class="hover:underline hidden md:inline">writing</button>
-			<button data-target="contact" class="rounded-md bg-black px-3 py-1 text-white">contact</button>
+			<button data-target="bio" class="hover:underline cursor-pointer hidden md:inline">about</button>
+			<button data-target="photo" class="hover:underline cursor-pointer hidden md:inline">photo</button>
+			<button data-target="music" class="hover:underline cursor-pointer hidden md:inline">music</button>
+			<button data-target="software" class="hover:underline cursor-pointer hidden md:inline">software</button>
+			<button data-target="writing" class="hover:underline cursor-pointer hidden md:inline">writing</button>
+			<button data-target="contact" class="rounded-md cursor-pointer bg-[#262626] px-3 py-1 hover:text-white	 text-[#dcffba]">contact</button>
 		</div>
 	</nav>
 	
 	<script is:inline>
 		const nav = document.getElementById("nav-links");
-		const header = document.getElementById("header");
-		const offset = () => (header ? header.offsetHeight + 8 : 0);
-	
 		nav?.addEventListener("click", (event) => {
-			const target = event.target;
-			if (!(target instanceof HTMLElement)) return;
-			const sectionId = target.dataset.target;
+			const el = (event.target instanceof HTMLElement)
+			? event.target.closest("[data-target]")
+			: null;
+			if (!(el instanceof HTMLElement)) return;
+			const sectionId = el.dataset.target;
 			if (!sectionId) return;
-			event.preventDefault();
 			const section = document.getElementById(sectionId);
-			section.scrollIntoView({ behavior: "smooth" });
+			if (!section) return;
+			event.preventDefault();
+  section.scrollIntoView({ block: 'start' });
+
+			// section.scrollIntoView({ behavior: "auto", block: "start" });
 		});
 	</script>
 </header>
