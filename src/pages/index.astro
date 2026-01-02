@@ -128,15 +128,10 @@ import Photo from "@/components/sections/Photo.astro";
 			} else {
 				document.getElementById("header").classList.add("-translate-y-16");
 			}
+			requestAnimationFrame(scrollHandler);
 		}
 		document.addEventListener("DOMContentLoaded", () => {
-			const scrollingContent = document.getElementById("scrolling-content");
-			if (scrollingContent) {
-				scrollHandler(); // Initial check
-				scrollingContent.addEventListener("scroll", scrollHandler, {
-					passive: true,
-				});
-			}
+			requestAnimationFrame(scrollHandler);
 		});
 	</script>
 </Layout>
