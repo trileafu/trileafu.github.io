@@ -97,6 +97,7 @@ import Music from "@/components/sections/Music.astro";
 		class="max-sm:min-h-[40lvh] z-10 min-h-[100svh] flex items-center justify-center bg-black absolute top-0 left-0 w-full"
 	>
 		<main
+		id="logo"
 			class="logoMain relative flex items-end justify-end overflow-hidden sm:flex-row gap-4 bg-white aspect-[3.375/2.125] w-[80vw]"
 		>
 			<figure
@@ -139,11 +140,18 @@ import Music from "@/components/sections/Music.astro";
 	</div>
 	<script is:inline>
 		function scrollHandler() {
+			const top = window.getComputedStyle(document.getElementById("contents")).marginTop.replace("px", "");
 			const rect = document.getElementById("contents").getBoundingClientRect();
+			const logo = document.getElementById("logo");
+			const blurValue = ((1 - rect.top / top) * 16).toFixed(2);
+			logo.style.filter = `blur(${blurValue}px)`;
+			const scaleDelta = (1 - rect.top / top) * 0.2;
+			const scaleValue = Math.max(0.8, 1 - scaleDelta);
+			logo.style.transform = `scale(${scaleValue})`;
 			if (rect.top <= 60) {
-				document.getElementById("header").classList.remove("-translate-y-16");
+				header.classList.remove("-translate-y-16");
 			} else {
-				document.getElementById("header").classList.add("-translate-y-16");
+				header.classList.add("-translate-y-16");
 			}
 			requestAnimationFrame(scrollHandler);
 		}
