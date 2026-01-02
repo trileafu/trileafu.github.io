@@ -1,0 +1,68 @@
+---
+import ngipenImg from "@/assets/projects/nGipEn.png";
+import { Image } from "astro:assets";
+import { Drum, Guitar, KeyboardMusic, MicVocal } from "lucide-react";
+---
+
+<div class="container" id="music">
+	<div
+		class="sticky top-0 pt-15 pb-4 pr-4 rounded-br-2xl h-fit bg-white z-10 left-0 w-fit"
+	>
+		<h2
+			class="bg-fuchsia-100 text-xl outline-1 outline-fuchsia-900 py-2 px-4 w-fit rounded-xs rounded-br-2xl"
+		>
+			Music
+		</h2>
+	</div>
+	<div class="text-center w-full flex flex-col md:flex-row gap-4">
+		<div class="w-full">
+			I also <b>compose and produce</b> music or songs,
+			<div class="flex gap-4 p-4 justify-center overflow-x-auto">
+				<a
+					href="https://ngipen.page"
+					class="hover:scale-95 transition-transform flex-shrink-0"
+					rel="noreferrer"
+					target="_blank"
+				>
+					<Image
+						src={ngipenImg}
+						alt="nGipEn"
+						class="h-64 aspect-square w-auto mb-2 rounded-lg transition-shadow shadow-md hover:shadow-xl object-cover"
+					/>
+					<span class="font-semibold">Album</span>
+				</a>
+			</div>
+		</div>
+		<div class="w-full">
+			and I can play the instruments too.
+			<span class="w-full flex pt-8 justify-center">
+				<div class="grid aspect-square grid-cols-2 grid-rows-2 w-fit gap-4">
+					<div
+						class="w-28 text-sm font-semibold gap-1 hover:bg-slate-800 hover:text-white transition-colors cursor-default duration-150 flex flex-col items-center justify-center rounded-full bg-gray-200 aspect-square"
+					>
+						<Drum />
+						Drum
+					</div>
+					<div
+						class="w-28 text-sm font-semibold gap-1 hover:bg-slate-800 hover:text-white transition-colors cursor-default duration-150 flex flex-col items-center justify-center rounded-full bg-gray-200 aspect-square"
+					>
+						<Guitar />
+						Guitar
+					</div>
+					<div
+						class="w-28 text-sm font-semibold gap-1 hover:bg-slate-800 hover:text-white transition-colors cursor-default duration-150 flex flex-col items-center justify-center rounded-full bg-gray-200 aspect-square"
+					>
+						<KeyboardMusic />
+						Keyboard
+					</div>
+					<div
+						class="w-28 text-sm font-semibold gap-1 hover:bg-slate-800 hover:text-white transition-colors cursor-default duration-150 flex flex-col items-center justify-center rounded-full bg-gray-200 aspect-square"
+					>
+						<MicVocal />
+						Vocal
+					</div>
+				</div>
+			</span>
+		</div>
+	</div>
+</div>
