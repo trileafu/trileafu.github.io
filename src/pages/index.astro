@@ -2,14 +2,8 @@
 import Logo from "@/components/Logo.astro";
 import Layout from "@/layouts/Layout.astro";
 import Aside from "@/assets/aside.svg";
-<<<<<<< HEAD
 import Navbar from "@/components/Navbar.astro";
 import Photo from "@/components/sections/Photo.astro";
-=======
-import Contact from "@/assets/contact.svg";
-import Portfolio from "@/components/Portfolio.astro";
-import Blog from "@/components/Blog.astro";
->>>>>>> cb0ff3436bfc27baf00b979dd88462a291ad9b0f
 ---
 
 <Layout>
@@ -86,12 +80,7 @@ import Blog from "@/components/Blog.astro";
 		}
 	</style>
 	<div
-<<<<<<< HEAD
 		class="max-sm:min-h-[40lvh] z-10 min-h-[100svh] flex items-center justify-center bg-black absolute top-0 left-0 w-full"
-=======
-		id="header"
-		class="max-sm:min-h-[40lvh] z-10 min-h-[100svh] flex items-center justify-center bg-black absolute top-0 left-0 w-full transition-opacity duration-300"
->>>>>>> cb0ff3436bfc27baf00b979dd88462a291ad9b0f
 	>
 		<main
 			class="logoMain relative flex items-end justify-end overflow-hidden sm:flex-row gap-4 bg-white aspect-[3.375/2.125] w-[80vw]"
@@ -111,19 +100,13 @@ import Blog from "@/components/Blog.astro";
 		class="transition-transform duration-300 -translate-y-16"
 	/>
 	<div
-<<<<<<< HEAD
 		class="absolute z-20 top-0 left-0 flex w-full h-[100svh] overflow-y-scroll"
-=======
-		id="footer"
-		class="max-sm:min-h-[40svh] z-10 min-h-[100svh] flex items-center justify-center bg-black max-sm:absolute max-sm:bottom-0 max-sm:left-0 max-sm:w-full transition-opacity duration-300"
->>>>>>> cb0ff3436bfc27baf00b979dd88462a291ad9b0f
 	>
 		<div class="w-full">
 			<div
 				class="bg-white justify-center flex px-8 max-sm:mt-[40svh] mt-[100svh]"
 				id="contents"
 			>
-<<<<<<< HEAD
 				<div class="container flex items-stretch gap-4">
 					<aside
 						class="md:w-34 opacity-50 bg-[url('@/assets/stem.svg')] bg-contain bg-repeat-y"
@@ -136,42 +119,14 @@ import Blog from "@/components/Blog.astro";
 				</div>
 			</div>
 		</div>
-=======
-				<Logo />
-			</figure>
-			<aside class="logoAside w-[60vw] h-full">
-				<Contact class="w-full h-full" />
-			</aside>
-		</main>
-	</div>
-	<div
-		id="scrolling-content"
-		class="absolute z-30 top-0 left-0 w-full h-[100svh] overflow-y-scroll"
-	>
-		<section class="bg-white max-sm:mt-[40svh] mt-[100svh]" id="contents">
-			<Portfolio />
-		</section>
-		<section class="bg-white max-sm:mb-[40lvh] mb-[100svh]">
-			<Blog />
-		</section>
->>>>>>> cb0ff3436bfc27baf00b979dd88462a291ad9b0f
 	</div>
 	<script is:inline>
 		function scrollHandler() {
 			const rect = document.getElementById("contents").getBoundingClientRect();
-<<<<<<< HEAD
 			if (rect.top <= 60) {
 				document.getElementById("header").classList.remove("-translate-y-16");
 			} else {
 				document.getElementById("header").classList.add("-translate-y-16");
-=======
-			if (rect.top <= 0) {
-				document.getElementById("header").classList.add("opacity-0");
-				document.getElementById("footer").classList.add("opacity-0");
-			} else {
-				document.getElementById("header").classList.remove("opacity-0");
-				document.getElementById("footer").classList.remove("opacity-0");
->>>>>>> cb0ff3436bfc27baf00b979dd88462a291ad9b0f
 			}
 		}
 		document.addEventListener("DOMContentLoaded", () => {
