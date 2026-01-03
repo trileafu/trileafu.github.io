@@ -11,12 +11,15 @@ import { localizedHTML as favicons } from "astro-favicons/middleware";
 	<head>
 		<meta charset="UTF-8" />
 		<Fragment set:html={favicons(Astro.currentLocale)} />
-		<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1,viewport-fit=cover"
+		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>trileafu</title>
 	</head>
-	<body>
+	<body class="selection:bg-lime-300 selection:text-lime-800">
 		<slot />
 	</body>
 </html>
