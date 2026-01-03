@@ -51,7 +51,7 @@ export default defineConfig({
 				scope: "browser",
 				start_url: "/",
 				display: "browser",
-				lang: "id-ID",
+				lang: "en-US",
 				display_override: ["tabbed"],
 			},
 		}),
@@ -83,35 +83,66 @@ export default defineConfig({
 				},
 			},
 			language: {
-				default: "id",
+				default: "en",
 				autoDetect: "browser",
 				translations: {
-					id: {
+					en: {
 						consentModal: {
-							title: "Kami menggunakan cookies",
+							title: "i use cookies",
 							description:
-								"Halo! Kami menggunakan cookies untuk meningkatkan pengalaman Anda di situs web kami. Beberapa cookies diperlukan untuk membantu kami menganalisis lalu lintas dan meningkatkan layanan kami. Anda dapat mengelola preferensi cookie Anda kapan saja melalui ikon cookie di footer.",
-							acceptAllBtn: "Terima semua",
-							acceptNecessaryBtn: "Tolak semua",
-							showPreferencesBtn: "Kelola preferensi",
+								"hi there! i use cookies to improve your experience on this site. some are essential for basic functionality, while others help me analyze traffic and enhance my services. you can change your cookie preferences anytime from the footer icon.",
+							acceptAllBtn: "accept all",
+							acceptNecessaryBtn: "reject all",
+							showPreferencesBtn: "manage preferences",
 						},
 						preferencesModal: {
-							title: "Pusat Preferensi Persetujuan",
-							acceptAllBtn: "Terima semua",
-							acceptNecessaryBtn: "Tolak semua",
-							savePreferencesBtn: "Simpan preferensi",
-							closeIconLabel: "Tutup modal",
-							serviceCounterLabel: "Layanan|Layanan",
+							title: "consent preferences center",
+							acceptAllBtn: "accept all",
+							acceptNecessaryBtn: "reject all",
+							savePreferencesBtn: "save preferences",
+							closeIconLabel: "close modal",
+							serviceCounterLabel: "service|services",
 							sections: [
 								{
-									title: "Penggunaan Cookie",
+									title: "cookie usage",
 									description:
-										"Halo! Kami menggunakan cookies untuk meningkatkan pengalaman Anda di situs web kami. Beberapa cookies diperlukan untuk fungsi dasar situs, sementara yang lain membantu kami menganalisis lalu lintas dan meningkatkan layanan kami. Anda dapat mengelola preferensi cookie Anda kapan saja melalui tautan di footer.",
+										"hi there! i use cookies to improve your experience on this site. some cookies are essential for basic site functions, while others help me analyze traffic and improve my services. you can update your choices anytime via the footer link.",
 								},
 								{
-									title: "Cookie Analitik",
+									title: "analytics cookies",
 									description:
-										"Halo! Kami menggunakan cookies untuk meningkatkan pengalaman Anda di situs web kami. Beberapa cookies diperlukan untuk membantu kami menganalisis lalu lintas dan meningkatkan layanan kami. Anda dapat mengelola preferensi cookie Anda kapan saja melalui tautan di footer.",
+										"these help me understand how visitors use the site so i can improve it. you can toggle analytics on or off whenever you like.",
+									linkedCategory: "analytics",
+								},
+							],
+						},
+					},
+					id: {
+						consentModal: {
+							title: "saya menggunakan cookies",
+							description:
+								"halo! saya menggunakan cookies untuk meningkatkan pengalaman anda di situs web ini. beberapa cookies diperlukan untuk membantu saya menganalisis lalu lintas dan meningkatkan layanan saya. anda dapat mengelola preferensi cookie kapan saja melalui ikon cookie di footer.",
+							acceptAllBtn: "terima semua",
+							acceptNecessaryBtn: "tolak semua",
+							showPreferencesBtn: "kelola preferensi",
+						},
+						preferencesModal: {
+							title: "pusat preferensi persetujuan",
+							acceptAllBtn: "terima semua",
+							acceptNecessaryBtn: "tolak semua",
+							savePreferencesBtn: "simpan preferensi",
+							closeIconLabel: "tutup modal",
+							serviceCounterLabel: "layanan|layanan",
+							sections: [
+								{
+									title: "penggunaan cookie",
+									description:
+										"halo! saya menggunakan cookies untuk meningkatkan pengalaman anda di situs web ini. beberapa cookies diperlukan untuk fungsi dasar situs, sementara yang lain membantu saya menganalisis lalu lintas dan meningkatkan layanan saya. anda dapat mengelola preferensi cookie kapan saja melalui tautan di footer.",
+								},
+								{
+									title: "cookie analitik",
+									description:
+										"halo! saya menggunakan cookies untuk meningkatkan pengalaman anda di situs web ini. beberapa cookies diperlukan untuk membantu saya menganalisis lalu lintas dan meningkatkan layanan saya. anda dapat mengelola preferensi cookie kapan saja melalui tautan di footer.",
 									linkedCategory: "analytics",
 								},
 							],

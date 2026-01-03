@@ -131,3 +131,8 @@
 		@apply bg-black text-foreground;
 	}
 }
+
+#cc-main {
+	/** Change font **/
+	--cc-font-family: var(--font-sans);
+}
