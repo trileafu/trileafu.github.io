@@ -21,3 +21,124 @@
 02:45:48 [200] / 41ms
 02:45:50 [200] /_image 2167ms
 02:45:50 [200] /_image 1865ms
+02:55:48 [watch] src/components/ParticleOverlay.astro
+02:55:48 [watch] src/components/ParticleOverlay.astro
+02:56:07 [200] / 342ms
+02:56:09 [200] /_image 1406ms
+02:56:12 [200] /_image 4010ms
+03:40:52 Configuration file updated. Restarting...
+03:40:52 [watch] package.json
+03:40:52 [watch] package.json
+03:40:54 [astro-favicons] 3 file(s), 16 image(s)[2m 721ms.[0m
+03:40:54 [vite] Re-optimizing dependencies because lockfile has changed
+03:40:57 [content] Syncing content
+03:40:58 [content] Synced content
+03:40:58 [types] Generated 3.53s
+03:40:58 [vite] Re-optimizing dependencies because vite config has changed
+03:40:58 [ERROR] [vite] Error: The following dependencies are imported but could not be resolved:
+
+  particles.js (imported by /app/src/components/ParticleOverlay.astro?id=0)
+
+Are they installed?
+    at file:///app/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:14849:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///app/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47014:28
+03:41:00 Configuration file updated. Restarting...
+03:41:00 [astro-favicons] 3 file(s), 16 image(s)[2m 541ms.[0m
+03:41:01 [vite] Re-optimizing dependencies because lockfile has changed
+03:41:01 [content] Syncing content
+03:41:01 [content] Synced content
+03:41:01 [types] Generated 855ms
+03:41:01 [vite] Re-optimizing dependencies because vite config has changed
+03:41:01 [ERROR] [vite] Error: The following dependencies are imported but could not be resolved:
+
+  particles.js (imported by /app/src/components/ParticleOverlay.astro?id=0)
+
+Are they installed?
+    at file:///app/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:14849:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///app/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47014:28
+03:43:22 [200] /test 358ms
+03:43:23 [vite] ✨ new dependencies optimized: vanilla-cookieconsent, tsparticles-engine, tsparticles
+03:43:23 [vite] ✨ optimized dependencies changed. reloading
+03:43:23 [200] /test 11ms
+03:43:45 [watch] src/pages/test.astro
+03:43:58 [200] /test 7ms
+03:44:28 [watch] src/pages/test.astro
+03:44:41 [200] /test 26ms
+03:45:18 [watch] src/pages/test.astro
+03:45:31 [200] /test 8ms
+03:45:59 [watch] src/pages/test.astro
+03:46:11 [200] /test 7ms
+03:46:44 [watch] src/pages/test.astro
+03:46:57 [200] /test 9ms
+03:47:29 Configuration file updated. Restarting...
+03:47:30 [astro-favicons] 3 file(s), 16 image(s)[2m 297ms.[0m
+03:47:30 [vite] Re-optimizing dependencies because lockfile has changed
+03:47:30 [content] Syncing content
+03:47:30 [content] Synced content
+03:47:30 [types] Generated 717ms
+03:47:30 [vite] Re-optimizing dependencies because vite config has changed
+03:47:30 [ERROR] [vite] Error: The following dependencies are imported but could not be resolved:
+
+  particles.js (imported by /app/src/components/ParticleOverlay.astro?id=0)
+  tsparticles (imported by /app/src/pages/test.astro?id=0)
+  tsparticles-engine (imported by /app/src/pages/test.astro?id=0)
+
+Are they installed?
+    at file:///app/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:14849:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///app/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47014:28
+03:47:31 Configuration file updated. Restarting...
+03:47:31 [astro-favicons] 3 file(s), 16 image(s)[2m 247ms.[0m
+03:47:31 [vite] Re-optimizing dependencies because lockfile has changed
+03:47:32 [content] Syncing content
+03:47:32 [content] Synced content
+03:47:32 [types] Generated 489ms
+03:47:32 [vite] Re-optimizing dependencies because vite config has changed
+03:47:32 [ERROR] [vite] Error: The following dependencies are imported but could not be resolved:
+
+  tsparticles (imported by /app/src/pages/test.astro?id=0)
+  tsparticles-engine (imported by /app/src/pages/test.astro?id=0)
+
+Are they installed?
+    at file:///app/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:14849:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///app/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47014:28
+03:48:06 [200] /test 236ms
+03:48:07 [vite] ✨ new dependencies optimized: vanilla-cookieconsent
+03:48:07 [vite] ✨ optimized dependencies changed. reloading
+03:48:07 [200] /test 7ms
+03:48:57 [watch] src/pages/test.astro
+03:49:12 [200] /test 5ms
+03:49:38 [watch] src/pages/test.astro
+03:49:57 [200] /test 5ms
+03:52:14 [200] / 117ms
+03:52:15 [200] /_image 327ms
+03:52:17 [200] /_image 2583ms
+03:53:17 [200] / 28ms
+03:53:17 [200] /_image 206ms
+03:53:19 [200] /_image 1803ms
+03:53:44 [watch] src/components/TSParticlesOverlay.astro
+03:53:44 [watch] src/components/TSParticlesOverlay.astro
+03:53:56 [200] / 65ms
+03:53:56 [200] /_image 225ms
+03:53:58 [200] /_image 1714ms
+03:54:33 [watch] src/components/TSParticlesOverlay.astro
+03:54:33 [watch] src/components/TSParticlesOverlay.astro
+03:54:46 [200] / 88ms
+03:54:46 [200] /_image 178ms
+03:54:48 [200] /_image 1770ms
+03:56:17 [watch] /src/styles/global.css
+03:56:17 [watch] public/leaf.svg
+03:56:32 [200] / 65ms
+03:56:32 [200] /_image 240ms
+03:56:34 [200] /_image 1769ms
+03:57:05 [watch] src/components/TSParticlesOverlay.astro
+03:57:05 [watch] src/components/TSParticlesOverlay.astro
+03:57:13 [watch] src/pages/index.astro
+03:58:03 [watch] src/pages/test.astro
+03:58:03 [watch] src/pages/test.astro
+03:58:31 [200] / 57ms
+03:58:31 [200] /_image 248ms
+03:58:32 [200] /_image 1702ms
