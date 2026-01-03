@@ -21,7 +21,6 @@ const options = getParticlesOptions(leaf.src);
 	import { loadSlim } from "tsparticles-slim";
 
 	window.particlesInit = async (engine: Engine) => {
-		console.log("Initializing particles...");
 		await loadSlim(engine);
 	};
 </script>
@@ -141,11 +140,7 @@ const options = getParticlesOptions(leaf.src);
 				<div
 					class="absolute inset-0 overflow-hidden pointer-events-none h-full w-full"
 				>
-					<Particles
-						id="tsparticles"
-						options={options}
-						init="particlesInit"
-					/>
+					<Particles id="tsparticles" options={options} init="particlesInit" />
 				</div>
 				<div class="container flex items-stretch md:gap-4">
 					<aside
@@ -170,9 +165,7 @@ const options = getParticlesOptions(leaf.src);
 			const top = window
 				.getComputedStyle(document.getElementById("contents"))
 				.marginTop.replace("px", "");
-			const rect = document
-				.getElementById("contents")
-				.getBoundingClientRect();
+			const rect = document.getElementById("contents").getBoundingClientRect();
 			const logo = document.getElementById("logo");
 			const canvas = document.getElementById("tsparticles").children[0];
 			canvas.classList.add("transition-all");
@@ -182,9 +175,7 @@ const options = getParticlesOptions(leaf.src);
 			const scaleDelta = (1 - rect.top / top) * 0.2;
 			const scaleValue = Math.max(0.8, 1 - scaleDelta);
 			logo.style.transform = `scale(${scaleValue})`;
-			const themeMeta = document.querySelector(
-				'meta[name="theme-color"]',
-			);
+			const themeMeta = document.querySelector('meta[name="theme-color"]');
 			if (themeMeta) {
 				const color = rect.top <= 0 ? "#ffffff" : "#000000";
 				if (themeMeta.getAttribute("content") !== color) {
@@ -204,6 +195,7 @@ const options = getParticlesOptions(leaf.src);
 		}
 		document.addEventListener("DOMContentLoaded", () => {
 			requestAnimationFrame(scrollHandler);
+			document.getElementById("tsparticles").style.display = "block";
 		});
 	</script>
 </Layout>
