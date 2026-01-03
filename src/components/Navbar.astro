@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Favicon from "@/assets/brands/favicon.png";
+import { Leaf, Newspaper } from "lucide-react";
 ---
 
 <header
@@ -16,28 +17,40 @@ import Favicon from "@/assets/brands/favicon.png";
 			<span class="text-xl font-serif font-bold">trileafu</span>
 		</div>
 		<div class="flex items-center gap-4 text-sm" id="nav-links">
-			<button data-target="bio" class="hover:underline cursor-pointer hidden md:inline">about</button>
-			<button data-target="photo" class="hover:underline cursor-pointer hidden md:inline">photo</button>
-			<button data-target="music" class="hover:underline cursor-pointer hidden md:inline">music</button>
-			<button data-target="software" class="hover:underline cursor-pointer hidden md:inline">software</button>
-			<button data-target="writing" class="hover:underline cursor-pointer hidden md:inline">writing</button>
-			<button data-target="contact" class="rounded-md cursor-pointer bg-[#262626] px-3 py-1 hover:text-white	 text-[#dcffba]">contact</button>
+			<button class="hover:underline cursor-pointer hidden" id="hide-leaf">
+				<Leaf className="md:hidden" size={16} />
+				<span class="hidden md:inline">disable leaves</span>
+			</button>
+			<button class="hover:underline cursor-pointer hidden" id="show-leaf">
+				<Leaf className="md:hidden opacity-50" size={16} />
+				<span class="hidden md:inline">enable leaves</span>
+			</button>
+			<a href="/blog" class="hover:underline cursor-pointer">
+				<Newspaper className="md:hidden" size={16} />
+				<span class="hidden md:inline"> my blog</span>
+			</a>
+			<button
+				data-target="contact"
+				class="rounded-md cursor-pointer bg-[#262626] px-3 py-1 hover:text-white text-[#dcffba]"
+				>contact me</button
+			>
 		</div>
 	</nav>
-	
+
 	<script is:inline>
 		const nav = document.getElementById("nav-links");
 		nav?.addEventListener("click", (event) => {
-			const el = (event.target instanceof HTMLElement)
-			? event.target.closest("[data-target]")
-			: null;
+			const el =
+				event.target instanceof HTMLElement
+					? event.target.closest("[data-target]")
+					: null;
 			if (!(el instanceof HTMLElement)) return;
 			const sectionId = el.dataset.target;
 			if (!sectionId) return;
 			const section = document.getElementById(sectionId);
 			if (!section) return;
 			event.preventDefault();
-  section.scrollIntoView({ block: 'start' });
+			section.scrollIntoView({ block: "start" });
 
 			// section.scrollIntoView({ behavior: "auto", block: "start" });
 		});
