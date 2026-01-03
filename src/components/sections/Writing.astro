@@ -1,33 +1,37 @@
 ---
 const posts = [
-    {
-        title: "Composing Live Sets with Minimal Gear",
-        summary: "Workflow notes for building evolving textures using a sampler, delay, and a single synth.",
-        category: "music",
-        date: "2025-12-02",
-        slug: "composing-live-sets-minimal-gear",
-    },
-    {
-        title: "Lightweight Photo Delivery Pipeline",
-        summary: "From RAW to web-ready: presets, exports, and automations that keep albums consistent.",
-        category: "photo",
-        date: "2025-10-15",
-        slug: "lightweight-photo-delivery-pipeline",
-    },
-    {
-        title: "State Machines in UI Without the Bloat",
-        summary: "How to model complex flows with small, testable machines instead of sprawling conditionals.",
-        category: "software",
-        date: "2025-08-30",
-        slug: "state-machines-ui-without-bloat",
-    },
-    {
-        title: "One-Command Dev Environments",
-        summary: "Shell scripts, dotfiles, and containers that make onboarding new machines trivial.",
-        category: "misc",
-        date: "2025-07-12",
-        slug: "one-command-dev-environments",
-    },
+	{
+		title: "Composing Live Sets with Minimal Gear",
+		summary:
+			"Workflow notes for building evolving textures using a sampler, delay, and a single synth.",
+		category: "music",
+		date: "2025-12-02",
+		slug: "composing-live-sets-minimal-gear",
+	},
+	{
+		title: "Lightweight Photo Delivery Pipeline",
+		summary:
+			"From RAW to web-ready: presets, exports, and automations that keep albums consistent.",
+		category: "photo",
+		date: "2025-10-15",
+		slug: "lightweight-photo-delivery-pipeline",
+	},
+	{
+		title: "State Machines in UI Without the Bloat",
+		summary:
+			"How to model complex flows with small, testable machines instead of sprawling conditionals.",
+		category: "software",
+		date: "2025-08-30",
+		slug: "state-machines-ui-without-bloat",
+	},
+	{
+		title: "One-Command Dev Environments",
+		summary:
+			"Shell scripts, dotfiles, and containers that make onboarding new machines trivial.",
+		category: "misc",
+		date: "2025-07-12",
+		slug: "one-command-dev-environments",
+	},
 ];
 ---
 
@@ -45,35 +49,32 @@ const posts = [
 	<div class="space-y-4">
 		<p class="text-center">i write <b>blog articles</b> about my interest.</p>
 		<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-			{posts.map((post) => (
-                <a
-                    href={post.slug}
-                    >
-                    <article
-                        class="flex flex-col gap-3 rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-                    >
-                        <div class="flex items-center justify-between text-sm text-gray-600">
-                            <span class="font-semibold text-gray-800">{post.date}</span>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
-                                    {post.category}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <h3 class="text-lg font-bold leading-tight text-gray-900">{post.title}</h3>
-                            <p class="text-gray-700">{post.summary}</p>
-                        </div>
-                        <span
-                            rel="noreferrer"
-                            class="inline-flex justify-center items-center gap-2 text-blue-700 font-semibold hover:text-blue-900"
-                        >
-                            read
-                            <span aria-hidden="true">→</span>
-                        </span>
-                    </article>
-                </a>
-			))}
+			{
+				posts.map((post) => (
+					<a href={post.slug}>
+						<article class="flex flex-col gap-3 rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+							<div class="flex items-center justify-between text-sm text-gray-600">
+								<span class="font-semibold text-gray-800">{post.date}</span>
+								<div class="flex flex-wrap gap-2">
+									<span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
+										{post.category}
+									</span>
+								</div>
+							</div>
+							<div class="space-y-2">
+								<h3 class="text-lg font-bold leading-tight text-gray-900">
+									{post.title}
+								</h3>
+								<p class="text-gray-700">{post.summary}</p>
+							</div>
+							<div class="inline-flex justify-center items-center gap-2 text-blue-700 font-semibold hover:text-blue-900">
+								read
+								<span aria-hidden="true">→</span>
+							</div>
+						</article>
+					</a>
+				))
+			}
 		</div>
 		<div class="flex justify-center">
 			<a
