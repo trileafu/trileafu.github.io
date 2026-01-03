@@ -48,7 +48,6 @@ export default defineConfig({
 			appleStatusBarStyle: "black-translucent",
 			background: "#262626",
 			manifest: {
-				scope: "browser",
 				start_url: "/",
 				display: "browser",
 				lang: "en-US",

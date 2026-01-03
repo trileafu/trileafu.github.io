@@ -23,6 +23,7 @@ import Contact from "@/components/sections/Contact.astro";
 		href="https://www.instagram.com/trileafu/embed/"
 		as="document"
 	/>
+	<meta name="theme-color" content="#000000" />
 	<style>
 		.logoFigure {
 			animation-name: logoFigureHorizontalAnim;
@@ -154,6 +155,13 @@ import Contact from "@/components/sections/Contact.astro";
 			const scaleDelta = (1 - rect.top / top) * 0.2;
 			const scaleValue = Math.max(0.8, 1 - scaleDelta);
 			logo.style.transform = `scale(${scaleValue})`;
+			const themeMeta = document.querySelector('meta[name="theme-color"]');
+			if (themeMeta) {
+				const color = rect.top <= 0 ? "#ffffff" : "#000000";
+				if (themeMeta.getAttribute("content") !== color) {
+					themeMeta.setAttribute("content", color);
+				}
+			}
 			if (rect.top <= 60) {
 				header.classList.remove("-translate-y-16");
 			} else {
