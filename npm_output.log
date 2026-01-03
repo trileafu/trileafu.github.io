@@ -2,29 +2,22 @@
 > trileafu-site@0.0.1 dev
 > astro dev
 
-▶ Astro collects anonymous usage data.
-  This information helps us improve Astro.
-  Run "astro telemetry disable" to opt-out.
-  https://astro.build/telemetry
+02:45:34 [astro-favicons] Processing source...
+02:45:35 [astro-favicons] 3 file(s), 16 image(s)[32m ✓ Completed in 219ms.[0m
+02:45:35 [types] Generated 1ms
+02:45:35 [content] Syncing content
+02:45:35 [content] Synced content
 
-08:16:06 [astro-favicons] Processing source...
-08:16:06 [astro-favicons] 3 file(s), 16 image(s)[32m ✓ Completed in 370ms.[0m
-08:16:06 [types] Generated 1ms
-08:16:06 [content] Syncing content
-08:16:06 [content] Synced content
-
- astro  v5.13.5 ready in 1540 ms
+ astro  v5.16.6 ready in 1282 ms
 
 ┃ Local    http://localhost:4321/
 ┃ Network  use --host to expose
 
-08:16:06 watching for file changes...
-
- update  ▶ New version of Astro available: 5.16.3
-  Run npx @astrojs/upgrade to update
-
-08:16:09 [content] Syncing content
-08:16:10 [content] Synced content
-08:16:27 [200] / 193ms
-08:16:27 [vite] ✨ new dependencies optimized: vanilla-cookieconsent
-08:16:27 [vite] ✨ optimized dependencies changed. reloading
+02:45:35 watching for file changes...
+02:45:48 [200] / 201ms
+02:45:48 [200] /_image 343ms
+02:45:48 [vite] ✨ new dependencies optimized: particles.js
+02:45:48 [vite] ✨ optimized dependencies changed. reloading
+02:45:48 [200] / 41ms
+02:45:50 [200] /_image 2167ms
+02:45:50 [200] /_image 1865ms

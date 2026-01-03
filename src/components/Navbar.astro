@@ -17,7 +17,7 @@ import { Leaf, Newspaper } from "lucide-react";
 			<span class="text-xl font-serif font-bold">trileafu</span>
 		</div>
 		<div class="flex items-center gap-4 text-sm" id="nav-links">
-			<button class="hover:underline cursor-pointer hidden" id="hide-leaf">
+			<button class="hover:underline cursor-pointer" id="hide-leaf">
 				<Leaf className="md:hidden" size={16} />
 				<span class="hidden md:inline">disable leaves</span>
 			</button>
@@ -53,6 +53,22 @@ import { Leaf, Newspaper } from "lucide-react";
 			section.scrollIntoView({ block: "start" });
 
 			// section.scrollIntoView({ behavior: "auto", block: "start" });
+		});
+
+		const hideLeafButton = document.getElementById("hide-leaf");
+		const showLeafButton = document.getElementById("show-leaf");
+		const particlesJs = document.getElementById("particles-js");
+
+		hideLeafButton.addEventListener("click", () => {
+			particlesJs.style.display = "none";
+			hideLeafButton.classList.add("hidden");
+			showLeafButton.classList.remove("hidden");
+		});
+
+		showLeafButton.addEventListener("click", () => {
+			particlesJs.style.display = "block";
+			showLeafButton.classList.add("hidden");
+			hideLeafButton.classList.remove("hidden");
 		});
 	</script>
 </header>
