@@ -1,0 +1,68 @@
+---
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Page</title>
+  </head>
+  <body>
+    <h1>Test Page for Particles</h1>
+    <div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+
+    <!-- Load particles.js and prevent Partytown from processing it -->
+    <script type="text/javascript" src="/particles.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.particlesJS) {
+          window.particlesJS("particles-js", {
+            particles: {
+              number: {
+                value: 80,
+                density: {
+                  enable: true,
+                  value_area: 800,
+                },
+              },
+              shape: {
+                type: "image",
+                image: {
+                  src: "/leaf.svg",
+                  width: 100,
+                  height: 100,
+                },
+              },
+              move: {
+                enable: true,
+                speed: 2,
+                direction: "bottom",
+                straight: false,
+                out_mode: "out",
+              },
+              size: {
+                value: 10,
+                random: true,
+              },
+              opacity: {
+                value: 0.5,
+                random: true,
+              },
+            },
+            interactivity: {
+              detect_on: "canvas",
+              events: {
+                onhover: {
+                  enable: false,
+                },
+                onclick: {
+                  enable: false,
+                },
+              },
+            },
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
