@@ -10,8 +10,21 @@ import Writing from "@/components/sections/Writing.astro";
 import Footer from "@/components/Footer.astro";
 import Music from "@/components/sections/Music.astro";
 import Contact from "@/components/sections/Contact.astro";
+import Particles from "astro-particles";
+import { getParticlesOptions } from "@/lib/particlesOptions";
+import leaf from "@/assets/leaf.svg";
+const options = getParticlesOptions(leaf.src);
 ---
 
+<script>
+	import { type Engine } from "tsparticles-engine";
+	import { loadSlim } from "tsparticles-slim";
+
+	window.particlesInit = async (engine: Engine) => {
+		console.log("Initializing particles...");
+		await loadSlim(engine);
+	};
+</script>
 <Layout>
 	<link
 		rel="preload"
@@ -125,6 +138,15 @@ import Contact from "@/components/sections/Contact.astro";
 				class="bg-white justify-center flex px-8 max-sm:mt-[40svh] mt-[100svh]"
 				id="contents"
 			>
+				<div
+					class="absolute inset-0 overflow-hidden pointer-events-none h-full w-full"
+				>
+					<Particles
+						id="tsparticles"
+						options={options}
+						init="particlesInit"
+					/>
+				</div>
 				<div class="container flex items-stretch md:gap-4">
 					<aside
 						class="md:min-w-34 bg-[url('@/assets/stem.svg')] bg-contain bg-repeat-y"
@@ -148,14 +170,21 @@ import Contact from "@/components/sections/Contact.astro";
 			const top = window
 				.getComputedStyle(document.getElementById("contents"))
 				.marginTop.replace("px", "");
-			const rect = document.getElementById("contents").getBoundingClientRect();
+			const rect = document
+				.getElementById("contents")
+				.getBoundingClientRect();
 			const logo = document.getElementById("logo");
+			const canvas = document.getElementById("tsparticles").children[0];
+			canvas.classList.add("transition-all");
+			canvas.classList.add("duration-300");
 			const blurValue = ((1 - rect.top / top) * 16).toFixed(2);
 			logo.style.filter = `blur(${blurValue}px)`;
 			const scaleDelta = (1 - rect.top / top) * 0.2;
 			const scaleValue = Math.max(0.8, 1 - scaleDelta);
 			logo.style.transform = `scale(${scaleValue})`;
-			const themeMeta = document.querySelector('meta[name="theme-color"]');
+			const themeMeta = document.querySelector(
+				'meta[name="theme-color"]',
+			);
 			if (themeMeta) {
 				const color = rect.top <= 0 ? "#ffffff" : "#000000";
 				if (themeMeta.getAttribute("content") !== color) {
@@ -164,8 +193,12 @@ import Contact from "@/components/sections/Contact.astro";
 			}
 			if (rect.top <= 60) {
 				header.classList.remove("-translate-y-16");
+				canvas.style.opacity = 1;
+				canvas.style.filter = "blur(0px)";
 			} else {
 				header.classList.add("-translate-y-16");
+				canvas.style.opacity = 0;
+				canvas.style.filter = "blur(8px)";
 			}
 			requestAnimationFrame(scrollHandler);
 		}

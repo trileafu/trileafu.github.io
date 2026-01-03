@@ -17,11 +17,14 @@ import { Leaf, Newspaper } from "lucide-react";
 			<span class="text-xl font-serif font-bold">trileafu</span>
 		</a>
 		<div class="flex items-center gap-4 text-sm" id="nav-links">
-			<button class="hover:underline cursor-pointer hidden" id="hide-leaf">
+			<button class="hover:underline cursor-pointer" id="hide-leaf">
 				<Leaf className="md:hidden" size={16} />
 				<span class="hidden md:inline">disable leaves</span>
 			</button>
-			<button class="hover:underline cursor-pointer hidden" id="show-leaf">
+			<button
+				class="hover:underline cursor-pointer hidden"
+				id="show-leaf"
+			>
 				<Leaf className="md:hidden opacity-50" size={16} />
 				<span class="hidden md:inline">enable leaves</span>
 			</button>
@@ -39,6 +42,28 @@ import { Leaf, Newspaper } from "lucide-react";
 
 	<script is:inline>
 		const nav = document.getElementById("nav-links");
+		const hideLeaf = document.getElementById("hide-leaf");
+		const showLeaf = document.getElementById("show-leaf");
+
+		function toggleLeaves(show) {
+			const canvas = document.getElementById("tsparticles").children[0];
+			console.log(canvas);
+			if (!canvas) return;
+
+			if (show) {
+				canvas.classList.remove("opacity-0!");
+				hideLeaf?.classList.remove("hidden");
+				showLeaf?.classList.add("hidden");
+			} else {
+				canvas.classList.add("opacity-0!");
+				hideLeaf?.classList.add("hidden");
+				showLeaf?.classList.remove("hidden");
+			}
+		}
+
+		hideLeaf?.addEventListener("click", () => toggleLeaves(false));
+		showLeaf?.addEventListener("click", () => toggleLeaves(true));
+
 		nav?.addEventListener("click", (event) => {
 			const el =
 				event.target instanceof HTMLElement
