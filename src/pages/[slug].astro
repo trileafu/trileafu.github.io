@@ -1,7 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import Footer from "@/components/Footer.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
@@ -17,14 +16,11 @@ const { Content } = await post.render();
 ---
 
 <Layout>
-	<main class="min-h-screen pt-24 pb-12 container mx-auto px-4 max-w-4xl">
-        <Mark />
-		<article
-			class="bg-white/95 backdrop-blur-md rounded-2xl shadow-sm p-8 md:p-12"
-		>
-			<div class="mb-8 border-b border-gray-100 pb-8">
+	<main class="container mx-auto px-4 py-24 flex-1">
+		<article class="bg-white rounded-2xl p-8 md:p-12">
+			<div class="mb-6 border-b border-gray-300 pb-6">
 				<div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-					<time datetime={post.data.pubDate.toISOString()}>
+					<time class="lowercase" datetime={post.data.pubDate.toISOString()}>
 						{
 							post.data.pubDate.toLocaleDateString("en-US", {
 								year: "numeric",
@@ -37,7 +33,7 @@ const { Content } = await post.render();
 						post.data.category && (
 							<>
 								<span class="w-1 h-1 rounded-full bg-gray-300" />
-								<span class="uppercase tracking-wider font-semibold text-xs text-lime-700">
+								<span class="tracking-wider font-semibold text-xs text-gray-700">
 									{post.data.category}
 								</span>
 							</>
@@ -45,7 +41,7 @@ const { Content } = await post.render();
 					}
 				</div>
 				<h1
-					class="text-3xl md:text-5xl font-bold font-serif text-gray-900 leading-tight mb-4"
+					class="text-3xl md:text-5xl font-bold font-serif text-gray-900 leading-tight"
 				>
 					{post.data.title}
 				</h1>
@@ -60,9 +56,5 @@ const { Content } = await post.render();
 				<Content />
 			</div>
 		</article>
-
-		<div class="mt-20">
-			<Footer />
-		</div>
 	</main>
 </Layout>

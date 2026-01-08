@@ -4,6 +4,8 @@ import "@fontsource-variable/bricolage-grotesque";
 import "@fontsource-variable/merriweather";
 import "@fontsource-variable/google-sans-code";
 import { localizedHTML as favicons } from "astro-favicons/middleware";
+import Footer from "@/components/Footer.astro";
+const { footer = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,8 +21,11 @@ import { localizedHTML as favicons } from "astro-favicons/middleware";
 		<meta name="generator" content={Astro.generator} />
 		<title>trileafu</title>
 	</head>
-	<body class="selection:bg-lime-300 selection:text-lime-800">
+	<body
+		class="flex flex-col min-h-screen selection:bg-lime-300 selection:text-lime-800"
+	>
 		<slot />
+		{footer && <Footer />}
 	</body>
 </html>
 
