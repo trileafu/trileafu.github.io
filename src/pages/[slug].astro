@@ -17,44 +17,64 @@ const { Content } = await post.render();
 
 <Layout>
 	<main class="container mx-auto px-4 py-24 flex-1">
-		<article class="bg-white rounded-2xl p-8 md:p-12">
-			<div class="mb-6 border-b border-gray-300 pb-6">
-				<div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-					<time class="lowercase" datetime={post.data.pubDate.toISOString()}>
-						{
-							post.data.pubDate.toLocaleDateString("en-US", {
-								year: "numeric",
-								month: "long",
-								day: "numeric",
-							})
-						}
-					</time>
-					{
-						post.data.category && (
-							<>
-								<span class="w-1 h-1 rounded-full bg-gray-300" />
-								<span class="tracking-wider font-semibold text-xs text-gray-700">
-									{post.data.category}
-								</span>
-							</>
-						)
-					}
-				</div>
-				<h1
-					class="text-3xl md:text-5xl font-bold font-serif text-gray-900 leading-tight"
-				>
-					{post.data.title}
-				</h1>
-				<p class="text-xl text-gray-600 leading-relaxed font-light">
-					{post.data.description}
-				</p>
-			</div>
-
-			<div
-				class="prose prose-lg prose-lime max-w-none prose-headings:font-serif prose-headings:font-bold prose-p:text-gray-700 prose-a:text-lime-700 hover:prose-a:text-lime-800"
+		<article class="bg-trileafu-background rounded-2xl">
+			<nav
+				class="flex gap-2 justify-between items-center py-2 px-4 rounded-full rounded-br-none text-xs md:text-sm font-semibold text-white"
 			>
-				<Content />
-			</div>
+				<div>
+					<a
+						href="/"
+						class="hover:bg-trileafu hover:text-trileafu-background transition-colors p-1 rounded-full"
+					>
+						← homepage
+					</a>
+					<a
+						href="/blog"
+						class="hover:bg-trileafu hover:text-trileafu-background transition-colors p-1 rounded-full"
+					>
+						← blog index
+					</a>
+				</div>
+				<span class="font-serif font-bold text-trileafu"> trileafu </span>
+			</nav>
+			<main class="bg-white rounded-2xl p-8 md:p-12">
+				<div class="mb-6 border-b border-gray-300 pb-6">
+					<div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+						<time class="lowercase" datetime={post.data.pubDate.toISOString()}>
+							{
+								post.data.pubDate.toLocaleDateString("en-US", {
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								})
+							}
+						</time>
+						{
+							post.data.category && (
+								<>
+									<span class="w-1 h-1 rounded-full bg-gray-300" />
+									<span class="tracking-wider font-semibold text-xs text-gray-700">
+										{post.data.category}
+									</span>
+								</>
+							)
+						}
+					</div>
+					<h1
+						class="text-3xl md:text-5xl font-bold font-serif text-gray-900 leading-tight"
+					>
+						{post.data.title}
+					</h1>
+					<p class="text-xl text-gray-600 leading-relaxed font-light">
+						{post.data.description}
+					</p>
+				</div>
+				<div
+					class="prose prose-lg prose-lime max-w-none prose-headings:font-serif prose-headings:font-bold prose-p:text-gray-700 prose-a:text-lime-700 hover:prose-a:text-lime-800"
+				>
+					<Content />
+				</div>
+			</main>
 		</article>
 	</main>
 </Layout>
