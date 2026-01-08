@@ -2,6 +2,7 @@
 import { fileURLToPath } from "url";
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -38,6 +39,7 @@ export default defineConfig({
 	},
 	integrations: [
 		react(),
+		mdx(),
 		sitemap(),
 		robotsTxt(),
 		favicons({

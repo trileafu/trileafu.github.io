@@ -1,38 +1,17 @@
 ---
-const posts = [
-	{
-		title: "Composing Live Sets with Minimal Gear",
-		summary:
-			"Workflow notes for building evolving textures using a sampler, delay, and a single synth.",
-		category: "music",
-		date: "2025-12-02",
-		slug: "composing-live-sets-minimal-gear",
-	},
-	{
-		title: "Lightweight Photo Delivery Pipeline",
-		summary:
-			"From RAW to web-ready: presets, exports, and automations that keep albums consistent.",
-		category: "photo",
-		date: "2025-10-15",
-		slug: "lightweight-photo-delivery-pipeline",
-	},
-	{
-		title: "State Machines in UI Without the Bloat",
-		summary:
-			"How to model complex flows with small, testable machines instead of sprawling conditionals.",
-		category: "software",
-		date: "2025-08-30",
-		slug: "state-machines-ui-without-bloat",
-	},
-	{
-		title: "One-Command Dev Environments",
-		summary:
-			"Shell scripts, dotfiles, and containers that make onboarding new machines trivial.",
-		category: "misc",
-		date: "2025-07-12",
-		slug: "one-command-dev-environments",
-	},
-];
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+const posts = allPosts
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 6)
+	.map((post) => ({
+		title: post.data.title,
+		summary: post.data.description,
+		category: post.data.category || "misc",
+		date: post.data.pubDate.toISOString().split("T")[0],
+		slug: post.slug,
+	}));
 ---
 
 <div class="container" id="writing">
@@ -47,7 +26,9 @@ const posts = [
 	</div>
 
 	<div class="space-y-4">
-		<p class="text-center">i write <b>blog articles</b> about my interest.</p>
+		<p class="text-center">
+			i write <b>blog articles</b> about my interest.
+		</p>
 		<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
 			{
 				posts.map((post) => (
