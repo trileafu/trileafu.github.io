@@ -49,12 +49,6 @@ export default defineConfig({
 			themes: ["#000000"],
 			appleStatusBarStyle: "black-translucent",
 			background: "#262626",
-			manifest: {
-				start_url: "/",
-				display: "browser",
-				lang: "en-US",
-				display_override: ["tabbed"],
-			},
 		}),
 		jopSoftwarecookieconsent({
 			guiOptions: {
